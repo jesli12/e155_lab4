@@ -22,6 +22,9 @@ void ms_delay(int ms) {
 }
 
 int main(void) {
+    // Turn on timer 15 and 16 (RM p224, 245) APB2ENR bit 16 and 17
+    RCC->APB2ENR |= 
+
     // Turn on clock to GPIOB
     RCC->AHB2ENR |= (1 << 1);
 
