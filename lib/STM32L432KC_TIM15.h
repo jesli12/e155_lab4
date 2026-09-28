@@ -1,8 +1,8 @@
 // STM32L432KC_TIM15.h
 // Header for TIM15 functions
 
-#ifndef STM32L4_RCC_H
-#define STM32L4_RCC_H
+#ifndef STM32L432KC_TIM15_H
+#define STM32L432KC_TIM15_H
 
 #include <stdint.h>
 
@@ -47,7 +47,7 @@ typedef struct
   uint32_t      RESERVED4;   /*Address offset: 0x58 */
   uint32_t      RESERVED5;   /*Address offset: 0x5C */
   __IO uint32_t OR2;         /*Address offset: 0x60 */
-} RCC_TypeDef;
+} TIM15_TypeDef;
 
 #define TIM15 ((TIM15_TypeDef *) TIM15_BASE)
 
@@ -55,7 +55,7 @@ typedef struct
 // Function prototypes
 ///////////////////////////////////////////////////////////////////////////////
 
-void configurePLL(void);
-void configureClock(void);
+// void configurePLL(void);
+// void configureClock(void);
 
 #endif
