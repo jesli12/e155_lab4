@@ -43,9 +43,9 @@ typedef struct
   __IO uint32_t DCR;         /*Address offset: 0x48 */
   __IO uint32_t DMAR;        /*Address offset: 0x4C */
   __IO uint32_t OR1;         /*Address offset: 0x50 */
-  uint32_t      RESERVED3;   /*Address offset: 0x54 */
-  uint32_t      RESERVED4;   /*Address offset: 0x58 */
-  uint32_t      RESERVED5;   /*Address offset: 0x5C */
+  uint32_t      RESERVED5;   /*Address offset: 0x54 */
+  uint32_t      RESERVED6;   /*Address offset: 0x58 */
+  uint32_t      RESERVED7;   /*Address offset: 0x5C */
   __IO uint32_t OR2;         /*Address offset: 0x60 */
 } TIM16_TypeDef;
 

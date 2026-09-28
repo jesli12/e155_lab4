@@ -26,7 +26,7 @@ void configurePLL() {
     RCC->PLLCFGR |= (0b1010000 << 8); // |= 80
 
     // TODO: Set PLLM
-    RCC->PLLCFGR &= ~(0b111 << 4)
+    RCC->PLLCFGR &= ~(0b111 << 4);
 
     // TODO: Set PLLR
     RCC->PLLCFGR &= ~(1 << 26);
