@@ -29,11 +29,11 @@ void configurePLL() {
     RCC->PLLCFGR &= ~(0b111 << 4)
 
     // TODO: Set PLLR
-    RCC->PLLR &= ~(1<<1); // bit[1] is 0
-    RCC->PLLR |= (1<<0); // bit[0] is 1
+    RCC->PLLCFGR &= ~(1 << 26);
+    RCC->PLLCFGR |= (1 << 25);
     
     // TODO: Enable PLLR output
-    RCC->PLLREN |= (1<<0);
+    RCC->PLLCFGR |= (1 << 24);
 
     // TODO: Enable PLL
     RCC->CR |= (1<<24);
