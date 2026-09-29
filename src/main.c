@@ -10,7 +10,8 @@
 // Define macros for constants
 #define LED_PIN           3;
 
-int main(void) 
+int main(void) {
+    configureFLASH();
     configureClock();
     initDuration();
     initPitch();

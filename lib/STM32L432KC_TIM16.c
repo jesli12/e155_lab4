@@ -18,7 +18,10 @@ void initPitch() {
     // Set Update Generation bit (RM p953) EGR register, bit 0
         // 0: no action, 1:  Reinitialize the counter and generates an update of the registers. Note that the prescaler counter is cleared too (anyway the prescaler ratio is not affected). 
     TIM16->EGR |= (1<<0); // (UG generates update event)
-    TIM15->SR &= ~(1 << 0);
+
+    // Clear UIF caused by update generation (line before this)
+        // see RM p 953, this gets turned on by both overflow and CNT reinitialization from UG
+    TIM16->SR &= ~(1 << 0);
 
     // Counter Clock Enable
     TIM16->CR1 |= (1<<0);
@@ -48,8 +51,8 @@ void playPitch(int noteFreq){
 
         //Reset Counter (this is done by UG?)
         // TIM16->CNT = 0;
-
-        // Restart TIM16
+        
+        // Restart TIM16 (enable counter again)
         TIM16->CR1 |= (1 << 0);
     }
 }
