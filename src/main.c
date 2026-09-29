@@ -30,7 +30,7 @@ int main(void) {
             runDuration(250);
             playPitch(659);
             if ((TIM16->SR >> 0) & 1){
-                togglePin(LED_PIN)
+                togglePin(LED_PIN);
             }
         }
     }
