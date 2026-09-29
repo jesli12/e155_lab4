@@ -55,7 +55,7 @@ typedef struct
 // Function prototypes
 ///////////////////////////////////////////////////////////////////////////////
 
-// void configurePLL(void);
-// void configureClock(void);
+void initPitch(void);
+void playPitch(int noteFreq);
 
 #endif
