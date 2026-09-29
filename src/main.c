@@ -7,6 +7,10 @@
 #include "STM32L432KC_TIM16.h"
 #include "STM32L432KC_TIM15.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stm32l432xx.h>
+
 // Define macros for constants
 #define LED_PIN           3;
 
