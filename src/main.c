@@ -8,19 +8,9 @@
 #include "STM32L432KC_TIM15.h"
 
 // Define macros for constants
-#define LED_PIN           3
-// #define DELAY_DURATION_MS    500
+#define LED_PIN           3;
 
-// // Function for dummy delay by executing nops
-// void ms_delay(int ms) {
-//    while (ms-- > 0) {
-//       volatile int x=1000;
-//       while (x-- > 0)
-//          __asm("nop");
-//    }
-// }
-
-int main(void) {
+int main(void) 
     configureClock();
     initDuration();
     initPitch();
