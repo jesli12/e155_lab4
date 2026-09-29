@@ -1,8 +1,5 @@
 // main.c
-// GPIO blink LED with clock configuration
-// Josh Brake
-// jbrake@hmc.edu
-// 9/16/24
+// Jessica Li 9/29/2026
 
 // Includes for libraries
 #include "STM32L432KC_RCC.h"
@@ -23,7 +20,7 @@ void ms_delay(int ms) {
 
 int main(void) {
     // Turn on timer 15 and 16 (RM p224, 245) APB2ENR bit 16 and 17
-    RCC->APB2ENR |= (0b11 << 16);
+    // RCC->APB2ENR |= (0b11 << 16);
 
     // Turn on clock to GPIOB
     RCC->AHB2ENR |= (1 << 1);
