@@ -168,7 +168,7 @@ const int notes2[][2] = {
   {0, 325}
 };
 
-
+// notes for fur elise, notes2 for mii
 
 int main(void) {
     configureFlash();
@@ -201,9 +201,3 @@ int main(void) {
     }
     return 0;
 }
-
-
-
-
-
-
