@@ -128,6 +128,47 @@ const int notes[][2] = {
 {440,	500},
 {  0,	0}};
 
+// Mii Channel Theme
+// Formatted as {frequency_in_hz, duration_in_ms}
+
+const int notes2[][2] = {
+  {370, 263}, 
+  {0, 263},
+  {440, 263},
+  {554, 263},
+  {0, 263},
+  {440, 263},
+  {0, 263},
+  {370, 263},
+
+  {294, 263},
+  {0, 8},
+  {294, 263},
+  {0, 8},
+  {294, 263},
+  {0, 263},
+  {0, 325},
+  {0, 263},
+  {277, 263},
+
+  {294, 263},
+  {370, 263},
+  {440, 263},
+  {554, 263},
+  {0, 263},
+  {440, 263},
+  {0, 263},
+  {349, 263},
+  {659, 388}, //dotted quarter
+  {0, 2},
+  {622, 263},
+  {587, 263},
+  {0, 263},
+  {0, 325}
+};
+
+
+
 int main(void) {
     configureFlash();
     configureClock();
@@ -143,11 +184,11 @@ int main(void) {
     
     runDuration(10);
 
-    for(int i = 0; i < (sizeof(notes)/sizeof(notes[0])); i++){
-      runDuration(notes[i][1]);
+    for(int i = 0; i < (sizeof(notes2)/sizeof(notes2[0])); i++){
+      runDuration(notes2[i][1]);
       while (!((TIM15->SR >> 0) & 1)){
-        playPitch(notes[i][0]);
-        if (notes[i][0] == 0){
+        playPitch(notes2[i][0]);
+        if (notes2[i][0] == 0){
           TIM16->SR &= ~(1 << 0);
         }else{
           while(!((TIM16->SR >> 0) & 1)){}
