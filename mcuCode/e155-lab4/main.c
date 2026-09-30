@@ -11,7 +11,7 @@
 #include <stdint.h>
 
 // Define macros for constants
-#define PIN_OUT           4
+#define PIN_OUT           3
 
 // Fur Elise, E155 Lab 4
 // Updated Fall 2024
