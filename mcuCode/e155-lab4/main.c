@@ -129,7 +129,8 @@ const int notes[][2] = {
 {  0,	0}};
 
 // Mii Channel Theme
-// Formatted as {frequency_in_hz, duration_in_ms}
+// translated from:
+/*https://github.com/robsoncouto/arduino-songs/blob/master/miichannel/miichannel.ino*/
 
 const int notes2[][2] = {
   {370, 263}, 
