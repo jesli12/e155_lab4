@@ -11,35 +11,7 @@
 #include <stdint.h>
 
 // Define macros for constants
-#define LED_PIN           3;
-
-int main(void) {
-    configureFlash();
-    configureClock();
-    initDuration();
-    initPitch();
-    // Turn on clock to GPIOB
-    RCC->AHB2ENR |= (1 << 1);
-
-    // Set LED_PIN as output
-    pinMode(3, GPIO_OUTPUT);
-
-    while (1){
-        while ((TIM15->SR >> 0) & 1){
-            runDuration(250);
-            playPitch(659);
-            if ((TIM16->SR >> 0) & 1){
-                togglePin(3);
-            }
-        }
-    }
-    return 0;
-}
-
-
-
-
-
+#define PIN_OUT           4
 
 // Fur Elise, E155 Lab 4
 // Updated Fall 2024
@@ -155,3 +127,34 @@ const int notes[][2] = {
 {494,	125},
 {440,	500},
 {  0,	0}};
+
+int main(void) {
+    configureFlash();
+    configureClock();
+
+    // Turn on clock to GPIOB
+    RCC->AHB2ENR |= (1 << 1);
+
+    initDuration();
+    initPitch();
+    
+    // Set LED_PIN as output
+    pinMode(PIN_OUT, GPIO_OUTPUT);
+
+    for(int i = 0; i < (sizeof(notes)/sizeof(notes[0])); i++){
+      runDuration(notes[i][0]);
+      while ((TIM15->SR >> 0) & 1){
+        playPitch(notes[i][1]);
+        if ((TIM16->SR >> 0) & 1){
+            togglePin(PIN_OUT);
+        }
+      }
+    }
+    return 0;
+}
+
+
+
+
+
+
