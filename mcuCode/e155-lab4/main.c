@@ -183,7 +183,7 @@ int main(void) {
     // Set LED_PIN as output
     pinMode(PIN_OUT, GPIO_OUTPUT);
     
-    runDuration(10);
+    // runDuration(10);
 
     for(int i = 0; i < (sizeof(notes2)/sizeof(notes2[0])); i++){
       runDuration(notes2[i][1]);
