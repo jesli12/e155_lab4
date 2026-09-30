@@ -34,7 +34,8 @@ void playPitch(int noteFreq){
 
     if (noteFreq == 0){
         // stop when rest, de-enable Counter Enable CEN (RM p 950)
-        TIM16->CR1 &= ~(1 << 0);
+        // TIM16->CR1 &= ~(1 << 0);
+
     }
     else{
         // halfPeriodCount = (Frequency of CK_INT/PSC=1Mhz) / (2*noteFreq)

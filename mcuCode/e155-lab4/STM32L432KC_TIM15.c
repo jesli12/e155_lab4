@@ -34,7 +34,7 @@ void runDuration(int duration){
 
         // Clear UIF caused by update generation (line before this)
             // see RM p 953, this gets turned on by both overflow and CNT reinitialization from UG
-        TIM15->SR &= ~(1 << 0);
+        TIM15->SR = ~(1 << 0);
 
         // Restart TIM15
         TIM15->CR1 |= (1 << 0);

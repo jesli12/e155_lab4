@@ -140,15 +140,22 @@ int main(void) {
     
     // Set LED_PIN as output
     pinMode(PIN_OUT, GPIO_OUTPUT);
+    
+    runDuration(10);
 
     for(int i = 0; i < (sizeof(notes)/sizeof(notes[0])); i++){
-      runDuration(notes[i][0]);
-      while ((TIM15->SR >> 0) & 1){
-        playPitch(notes[i][1]);
-        if ((TIM16->SR >> 0) & 1){
-            togglePin(PIN_OUT);
+      runDuration(notes[i][1]);
+      while (!((TIM15->SR >> 0) & 1)){
+        playPitch(notes[i][0]);
+        if (notes[i][0] == 0){
+          TIM16->SR &= ~(1 << 0);
+        }else{
+          while(!((TIM16->SR >> 0) & 1)){}
+          togglePin(PIN_OUT);
+          TIM16->SR &= ~(1 << 0);
         }
       }
+      TIM15->SR &= ~(1 << 0);
     }
     return 0;
 }
